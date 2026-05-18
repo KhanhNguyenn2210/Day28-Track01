@@ -7,7 +7,7 @@ format: Nhóm 3
 # Group members
 
 - **Tên nhóm / mã nhóm**: Nhóm AI-TNCN-01
-- **Track được giao**: AI Hỗ Trợ Quyết Quyết Quyết Toán Thuế TNCN (Người làm công ăn lương & Freelancer)
+- **Track được giao**: AI Hỗ Trợ Quyết Toán Thuế TNCN (Người làm công ăn lương & Freelancer)
 
 | # | Họ tên | Vai chính trong lab | Mã học viên |
 |---|---|---|---|
