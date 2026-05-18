@@ -23,15 +23,17 @@ Việc của nhóm hôm nay đúng là việc một PM/PO AI làm ngoài doanh n
 
 ## 2. Track của nhóm (điền sau khi nhận track card)
 
-- **Track số / tên**: [...]
+- **Track số / tên**: Track Đặc Biệt / AI Hỗ Trợ Quyết Toán Thuế TNCN (Personal Income Tax Assistant)
 - **Big Ask — chép nguyên văn câu yêu cầu trong track card**:
 
 ```text
-[...]
+Xây dựng một ứng dụng AI hỗ trợ tự động hóa việc thu thập, xử lý chứng từ khấu trừ thuế TNCN, tra cứu luật thuế và lập tờ khai quyết toán thuế xuất file XML chuẩn để nộp trực tiếp lên hệ thống eTax của Tổng cục Thuế, giúp giảm thiểu thời gian tự quyết toán từ 8 giờ xuống dưới 15 phút, tăng tỷ lệ nộp hồ sơ thành công ngay lần đầu từ 15% lên 95%, và tiết kiệm tối thiểu 700.000 VNĐ chi phí thuê kế toán dịch vụ cho mỗi cá nhân làm công ăn lương hoặc freelancer có nhiều nguồn thu nhập.
 ```
 
-- **Công cụ lớn này phục vụ ai** (học viên / coach / instructor / admin): [...]
-- **2 Red Flag đáng lo nhất (chép từ track card)**: 1. [...]  2. [...]
+- **Công cụ lớn này phục vụ ai** (học viên / coach / instructor / admin): Cá nhân người làm công ăn lương có nhiều nguồn thu nhập và Freelancers tự do tại Việt Nam.
+- **2 Red Flag đáng lo nhất (chép từ track card)**:
+  1. **Legal & Accuracy Risk**: Rủi ro ảo giác pháp lý (AI dẫn sai luật thuế hoặc tính sai tiền thuế dẫn đến phạt hành chính từ 1.000.000đ - 12.500.000đ theo Nghị định 310/2025/NĐ-CP).
+  2. **Data Privacy & Security**: E ngại về an toàn thông tin khi tải dữ liệu nhạy cảm (Ảnh chứng từ thuế, mã số thuế, số CCCD) lên AI.
 
 ---
 
@@ -49,7 +51,11 @@ Việc của nhóm hôm nay đúng là việc một PM/PO AI làm ngoài doanh n
 
 ## 4. Ghi chú thêm (tùy nhóm)
 
-[Hạn chót, quy mô data giả định nhóm dùng, ví dụ câu hỏi thật, bất kỳ thứ gì giúp AI hiểu context.]
+- **Hạn chót triển khai**: Trước mùa quyết toán thuế TNCN cao điểm (tháng 3 và tháng 4 hàng năm).
+- **Quy mô data pilot**: Thử nghiệm trên 50-100 người dùng thật (Freelancer, lập trình viên tự do, nhân viên văn phòng).
+- **Mô hình chính**: Gemini 2.5 Pro (Primary - tối ưu chi phí RAG) & GPT-4o (Fallback - tối ưu OCR ảnh mờ/nghiêng).
+- **Ngân sách tối đa**: 10.000.000 VNĐ trọn gói cho giai đoạn pilot 14 ngày.
+
 
 ---
 
