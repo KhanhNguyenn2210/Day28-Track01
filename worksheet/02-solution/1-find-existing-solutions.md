@@ -1,19 +1,12 @@
----
-artifact: 5 — Solution Approach (phần khám phá)
-bai-tap: Solution — tìm lời giải đã có sẵn trước khi tự xây
-phase: Double Diamond vòng 2 · ◇ giãn (mở hết lựa chọn, chưa chốt)
-time: ~8 phút (xem deck để biết khung giờ chính xác trong buổi)
-input: 01-frame/3-FINAL-problem-framing.md · 00-context.md · prompts/04-find-solutions.md
-nop-cuoi: Không — file trung gian (bản chốt ở 2-FINAL-solution.md)
----
+
 
 # 1 — Find existing solutions (đừng xây lại từ số 0)
 
-Mục tiêu: trước khi quyết Build / Buy / Boost / Partner, nhóm phải biết bài này đã có ai giải ở chỗ khác chưa, và họ giải bằng cách nào. Đây là nửa "giãn ra" của [Double Diamond](https://www.thefountaininstitute.com/blog/what-is-the-double-diamond-design-process) vòng 2 — mở hết các lời giải đang tồn tại, chưa chốt cái nào.
+Mục tiêu: trước khi quyết Build / Buy / Boost / Partner, nhóm phải biết bài này đã có ai giải ở chỗ khác chưa, và họ giải bằng cách nào. Đây là nửa "giãn ra" của `Double Diamond` vòng 2 — mở hết các lời giải đang tồn tại, chưa chốt cái nào.
 
 Lý do làm bước này: đây là chỗ nhiều nhóm hỏng mà không biết. Hỏng vì nhảy thẳng vào "tự build" cho oai, trong khi 80–90% nhu cầu nội bộ chỉ cần Boost hoặc Buy. Hỏng vì không hỏi "ai làm rồi" nên đi lại từ số 0. Gần như bài nào cũng đã có người giải ở một ngành khác — không thấy thì phí cả pilot.
 
-Quy tắc: **không có nguồn = giả định.** Mỗi cái AI/web nói ra, hỏi lại "lấy ở đâu?". Không chỉ được nguồn thì đánh dấu 🧮 (giả định để giảng), đừng xài như fact.
+Quy tắc: **không có nguồn = giả định.** Mỗi cái AI/web nói ra, hỏi lại "lấy ở đâu?". Không chỉ được nguồn thì đánh dấu  (giả định để giảng), đừng xài như fact.
 
 ## Bước 0 — Bài này thực ra là dạng bài gì? (2 phút)
 
@@ -45,12 +38,12 @@ Chúng tôi thực hiện deep research qua 4 tầng để tìm ra phương án 
 
 ### Trả lời — điền theo 4 tầng
 
-| Tầng | Hỏi AI/web câu gì | Tìm được gì | Nguồn / 🧮 nếu là giả định |
+| Tầng | Hỏi AI/web câu gì | Tìm được gì | Nguồn /  nếu là giả định |
 |---|---|---|---|
-| **1 · Map** | "Dạng bài structured visual document extraction và deterministic calculation thường giải bằng những hướng nào?" | Có 4 hướng giải chính:<br>1. **Template-based OCR**: Dựng bounding box tọa độ cho từng mẫu chứng từ. Ưu: Rất rẻ, chính xác 100% nếu đúng mẫu. Nhược: Phá sản nếu chụp nghiêng lệch.<br>2. **LLM OCR + JSON Mode**: Dùng Gemini Vision API để quét ảnh và trả về JSON chuẩn. Ưu: Quét cực nhạy mọi góc chụp, xử lý đa biểu mẫu. Nhược: Tốn API token.<br>3. **SaaS OCR Services**: Thuê API ngoài (như FPT AI, AWS Textract). Ưu: Tối ưu tiếng Việt. Nhược: Khó tùy biến biểu mẫu đặc thù của chứng từ thuế TNCN.<br>4. **LLM OCR + Code Rules Engine**: AI chỉ OCR dữ liệu thô sang JSON. Toàn bộ tính toán xử lý bằng code JS cứng. Ưu: Đạt độ chính xác tuyệt đối, tránh ảo giác số học của AI. | 🧮 (Theo tài liệu thiết kế hệ thống OCR Kế toán Việt Nam) |
-| **2 · Tiền lệ** | "Đội nào đã làm trích xuất biểu mẫu thu nhập ở quy mô tương tự và thành công? Họ làm cách nào?" | **TurboTax (Mỹ)**: Cho phép chụp ảnh biểu mẫu W-2 (chứng từ thu nhập). Quy trình của họ: Dùng AI OCR trích xuất dữ liệu $\rightarrow$ Đổ số liệu vào Form UI cho người dùng tự kiểm tra và chỉnh sửa (Fallback UX/Human-in-the-loop) $\rightarrow$ Đẩy vào Rules Engine nội bộ để tính toán số tiền hoàn thuế. | 🔗 [TurboTax Mobile App Workflow](https://turbotax.intuit.com) |
-| **3 · Phản chứng** | "Ca nào làm trích xuất và tính toán thuế bằng AI thất bại? Nguyên nhân gốc là gì?" | Các chatbot AI thế hệ đầu (nhập đề bài thuế bắt AI tự tính số thuế phải đóng trong prompt) thất bại do **ảo giác số học (arithmetic hallucination)**. LLM là mô hình xác suất từ ngữ, không sinh ra để tính toán số học phức tạp như công thức lũy tiến từng phần. Việc để AI tự tính toán số thuế dẫn đến sai sót nghiêm trọng và làm mất uy tín sản phẩm ngay lập tức. | 🧮 (Khuyến cáo thiết kế AI trong Tài chính - Kế toán 2024) |
-| **4 · Thu hẹp** | "Với ràng buộc [budget nhỏ · có người review · cần citation], hướng nào khả thi cho pilot 14 ngày?" | Hướng tối ưu nhất là: **LLM OCR (Gemini 2.5 Pro JSON Mode) + Deterministic JS Rules Engine + Fallback UI Review**. Gemini Vision API chỉ quét ảnh lấy số thô $\rightarrow$ JS Code xử lý tính toán thuế $\rightarrow$ Form UI trực quan hiển thị lại toàn bộ số liệu cho người dùng review chỉnh sửa $\rightarrow$ RAG luật thuế (Nghị định 310/2025/NĐ-CP) tích hợp riêng để tư vấn điều khoản. | 🧮 (Phù hợp ngân sách 10 triệu VNĐ, tối ưu hóa độ chính xác và an toàn dữ liệu) |
+| **1 · Map** | "Dạng bài structured visual document extraction và deterministic calculation thường giải bằng những hướng nào?" | Có 4 hướng giải chính:<br>1. **Template-based OCR**: Dựng bounding box tọa độ cho từng mẫu chứng từ. Ưu: Rất rẻ, chính xác 100% nếu đúng mẫu. Nhược: Phá sản nếu chụp nghiêng lệch.<br>2. **LLM OCR + JSON Mode**: Dùng Gemini Vision API để quét ảnh và trả về JSON chuẩn. Ưu: Quét cực nhạy mọi góc chụp, xử lý đa biểu mẫu. Nhược: Tốn API token.<br>3. **SaaS OCR Services**: Thuê API ngoài (như FPT AI, AWS Textract). Ưu: Tối ưu tiếng Việt. Nhược: Khó tùy biến biểu mẫu đặc thù của chứng từ thuế TNCN.<br>4. **LLM OCR + Code Rules Engine**: AI chỉ OCR dữ liệu thô sang JSON. Toàn bộ tính toán xử lý bằng code JS cứng. Ưu: Đạt độ chính xác tuyệt đối, tránh ảo giác số học của AI. |  (Theo tài liệu thiết kế hệ thống OCR Kế toán Việt Nam) |
+| **2 · Tiền lệ** | "Đội nào đã làm trích xuất biểu mẫu thu nhập ở quy mô tương tự và thành công? Họ làm cách nào?" | **TurboTax (Mỹ)**: Cho phép chụp ảnh biểu mẫu W-2 (chứng từ thu nhập). Quy trình của họ: Dùng AI OCR trích xuất dữ liệu $\rightarrow$ Đổ số liệu vào Form UI cho người dùng tự kiểm tra và chỉnh sửa (Fallback UX/Human-in-the-loop) $\rightarrow$ Đẩy vào Rules Engine nội bộ để tính toán số tiền hoàn thuế. |  [TurboTax Mobile App Workflow](https://turbotax.intuit.com) |
+| **3 · Phản chứng** | "Ca nào làm trích xuất và tính toán thuế bằng AI thất bại? Nguyên nhân gốc là gì?" | Các chatbot AI thế hệ đầu (nhập đề bài thuế bắt AI tự tính số thuế phải đóng trong prompt) thất bại do **ảo giác số học (arithmetic hallucination)**. LLM là mô hình xác suất từ ngữ, không sinh ra để tính toán số học phức tạp như công thức lũy tiến từng phần. Việc để AI tự tính toán số thuế dẫn đến sai sót nghiêm trọng và làm mất uy tín sản phẩm ngay lập tức. |  (Khuyến cáo thiết kế AI trong Tài chính - Kế toán 2024) |
+| **4 · Thu hẹp** | "Với ràng buộc [budget nhỏ · có người review · cần citation], hướng nào khả thi cho pilot 14 ngày?" | Hướng tối ưu nhất là: **LLM OCR (Gemini 2.5 Pro JSON Mode) + Deterministic JS Rules Engine + Fallback UI Review**. Gemini Vision API chỉ quét ảnh lấy số thô $\rightarrow$ JS Code xử lý tính toán thuế $\rightarrow$ Form UI trực quan hiển thị lại toàn bộ số liệu cho người dùng review chỉnh sửa $\rightarrow$ RAG luật thuế (Nghị định 310/2025/NĐ-CP) tích hợp riêng để tư vấn điều khoản. |  (Phù hợp ngân sách 10 triệu VNĐ, tối ưu hóa độ chính xác và an toàn dữ liệu) |
 
 ---
 
@@ -58,16 +51,16 @@ Chúng tôi thực hiện deep research qua 4 tầng để tìm ra phương án 
 
 ### Trả lời
 
-| Hướng giải khả thi | Ai làm rồi (gần bài mình nhất) | Nguồn / 🧮 | Hợp ràng buộc `00-context`? |
+| Hướng giải khả thi | Ai làm rồi (gần bài mình nhất) | Nguồn /  | Hợp ràng buộc `00-context`? |
 |---|---|---|---|
-| **Hướng 1: LLM OCR (Gemini 2.5 Pro) + Deterministic JS Calculator + Fallback UI Review (Boost)** | TurboTax W-2 Scanner | 🔗 [TurboTax](https://turbotax.intuit.com) | **Có**. Tối ưu chi phí API ($1.25/1M tokens input), đảm bảo 100% độ chính xác toán học, cho phép review con số trực quan. |
-| **Hướng 2: Thuê SaaS OCR chuyên dụng ngoài (Buy)** | FPT AI Reader | 🔗 [FPT.AI](https://fpt.ai) | **Không**. Chi phí mua API tối thiểu cao, khó tùy biến cho các mẫu chứng từ khấu trừ thuế TNCN phi tiêu chuẩn. |
-| **Hướng 3: RPA Agent tự động upload và nộp thẳng tờ khai lên eTax (Build)** | UiPath RPA bots | 🧮 | **Không**. Quá phức tạp để xây dựng trong 14 ngày, rủi ro bảo mật tài khoản của người dùng rất cao dẫn đến không ai dám dùng (Adoption = 0). |
+| **Hướng 1: LLM OCR (Gemini 2.5 Pro) + Deterministic JS Calculator + Fallback UI Review (Boost)** | TurboTax W-2 Scanner |  [TurboTax](https://turbotax.intuit.com) | **Có**. Tối ưu chi phí API ($1.25/1M tokens input), đảm bảo 100% độ chính xác toán học, cho phép review con số trực quan. |
+| **Hướng 2: Thuê SaaS OCR chuyên dụng ngoài (Buy)** | FPT AI Reader |  [FPT.AI](https://fpt.ai) | **Không**. Chi phí mua API tối thiểu cao, khó tùy biến cho các mẫu chứng từ khấu trừ thuế TNCN phi tiêu chuẩn. |
+| **Hướng 3: RPA Agent tự động upload và nộp thẳng tờ khai lên eTax (Build)** | UiPath RPA bots |  | **Không**. Quá phức tạp để xây dựng trong 14 ngày, rủi ro bảo mật tài khoản của người dùng rất cao dẫn đến không ai dám dùng (Adoption = 0). |
 
 **"Đi từ 5 lên" — nhóm kế thừa cụ thể cái gì** (1–2 câu):
 
 ```text
-Chúng tôi kế thừa mô hình "Fallback UI" (cho phép con người review và chỉnh sửa lại dữ liệu OCR) của TurboTax và tận dụng API đa phương thức (Multimodal API) có sẵn của Gemini 2.5 Pro để giải quyết bài toán OCR chứng từ nhanh chóng mà không cần tốn chi phí xây dựng hay huấn luyện lại các mô hình nhận diện ký tự quang học từ số 0.
+Chúng tôi kế thừa mô hình "Fallback UI" (cho phép con người review và chỉnh sửa lại dữ liệu OCR) của TurboTax và tận dụng API đa phương thức (Multimodal API) có sẵn của Gemini 2.5 Pro, hoặc sử dụng GPT 4o (tính năng mới nhất) để giải quyết bài toán OCR chứng từ nhanh chóng mà không cần tốn chi phí xây dựng hay huấn luyện lại các mô hình nhận diện ký tự quang học từ số 0.
 ```
 
 ---
@@ -93,7 +86,7 @@ Ghi nhanh 3 cái đáng chú ý nhất:
 |---|---|
 | Gọi được dạng bài trong 1 câu, không còn chữ domain | / |
 | Đủ 4 tầng deep research, tầng nào cũng có kết quả | / |
-| Mỗi kết quả có nguồn, hoặc đánh dấu 🧮 nếu là giả định | / |
+| Mỗi kết quả có nguồn, hoặc đánh dấu  nếu là giả định | / |
 | Rút về 2–3 hướng + nói được "đi từ 5 lên" cái gì | / |
 
 Hàng nào chưa xong → quay lại Phần A, đừng sang bước chốt vội.
