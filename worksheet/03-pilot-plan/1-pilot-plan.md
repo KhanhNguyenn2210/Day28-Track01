@@ -1,11 +1,3 @@
----
-artifact: 7 — AI Pilot Plan core
-bai-tap: Pilot Plan — cam kết hai chiều: xin – hứa – đo – dừng
-phase: Double Diamond vòng 2 · ◇ giãn → ◆ siết (liệt kê hết rồi chốt gọn)
-time: ~10 phút (xem deck để biết khung giờ chính xác trong buổi)
-input: 02-solution/2-FINAL-solution.md · 00-context.md · prompts/06-pilot-plan-challenge.md
-nop-cuoi: Không — file trung gian (bản nộp ở 2-FINAL-pitch.md)
----
 
 # 1 — AI Pilot Plan core
 
@@ -33,10 +25,10 @@ Câu hỏi phụ (tự trả lời):
 - Exit criteria của nhóm có ai DÁM thực thi khi sếp vẫn thích pilot không?
 - Adoption: ai dùng đầu tiên — không phải "cả khóa ~500 người"?
 
-### Trả lời
+#### Trả lời
 
 1. **Tóm vấn đề** (1 câu, từ Problem Framing): 
-Cá nhân và freelancers tự quyết toán thuế TNCN đang tốn từ 4 đến 8 tiếng mò mẫm thủ công trên eTax với tỷ lệ tờ khai hợp lệ ngay lần đầu chỉ đạt 15% - 20%, hoặc phải mất tối thiểu 700.000 VNĐ cho đại lý dịch vụ ngoài (IFA) và chờ đợi tới 6 ngày vì e ngại các mức phạt nộp chậm tăng nặng lên tới 12.500.000 VNĐ của Nghị định 310/2025/NĐ-CP.
+Cá nhân và freelancers tự quyết toán thuế TNCN đang tốn từ 4 đến 8 tiếng mò mẫm thủ công trên eTax với tỷ lệ tờ khai hợp lệ ngay lần đầu chỉ đạt 15% - 20%, hoặc phải mất tối thiểu 700.000 VNĐ cho đại lý dịch vụ ngoài (IFA) và chờ đợi tới 5 ngày vì e ngại các mức phạt nộp chậm tăng nặng lên tới 12.500.000 VNĐ của Nghị định 310/2025/NĐ-CP.
 
 2. **Cách làm + lý do** (từ 02-solution, 1 câu): 
 Sử dụng mô hình **Boost** - dùng Gemini 2.5 Pro Vision API để OCR chứng từ thuế thô sang JSON, chạy qua code Javascript Rules Engine cứng để bảo đảm tính toán chính xác 100%, kết hợp giao diện đối soát song song (Side-by-side Fallback UI) để người dùng làm Human-in-the-loop review số liệu trước khi xuất kết quả.
@@ -113,7 +105,7 @@ Phục vụ nhóm **50-100 Freelancers và lập trình viên tự do** có từ
 | Exit criteria có người có quyền thực thi (≥2 mức) | / |
 | Adoption: chỉ rõ ai dùng đầu tiên (không "cả khóa") | / |
 
-⚑ Coach kiểm tra ở Mốc 4: *"Xin gì? Hứa gì? Đo gì? Dừng khi nào?"*
+ Coach kiểm tra ở Mốc 4: *"Xin gì? Hứa gì? Đo gì? Dừng khi nào?"*
 
 Sau bước này, mở `2-FINAL-pitch.md` — dồn tất cả thành 5-slide pitch + AI Support Log.
 
