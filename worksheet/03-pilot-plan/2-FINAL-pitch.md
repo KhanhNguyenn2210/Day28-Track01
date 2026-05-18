@@ -1,7 +1,7 @@
 ---
 artifact: 8 — 5-slide Pitch + AI Support Log (bản nộp cuối lab)
 bai-tap: Pilot Plan — dồn thành pitch, sẵn sàng phản biện
-phase: Double Diamond vòng 2 · ◆ output (bản nộp cuối + present)
+phase: Double Diamond vòng 2 ·  output (bản nộp cuối + present)
 time: ~5 phút (xem deck để biết khung giờ chính xác trong buổi)
 input: 1-pilot-plan.md + toàn bộ 01-frame + 02-solution · templates/5-slide-pitch.md
 nop-cuoi: Có — bản nộp cuối lab (Part E · 5-slide Pitch + AI Support Log)
